@@ -6,46 +6,48 @@
   <title>Tienda Girasoles</title>
   <script src="https://sdk.mercadopago.com/js/v2"></script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Arial', sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Arial', sans-serif;
       background-image: url('https://i.ibb.co/yYjW3HF/girasoles-abejas.jpg');
       background-size: cover;
-      background-repeat: no-repeat;
       background-position: center;
       background-attachment: fixed;
+      backdrop-filter: blur(2px);
     }
 
     header {
-      background: rgba(255, 192, 203, 0.9);
-      padding: 1rem;
-      text-align: center;
+      background-color: rgba(255, 192, 203, 0.9);
       color: white;
+      text-align: center;
+      padding: 1rem;
       font-size: 2rem;
       font-weight: bold;
-      backdrop-filter: blur(5px);
     }
 
     .container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       padding: 1rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .product {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background: white;
+      border-radius: 10px;
       padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: center;
-      backdrop-filter: blur(5px);
     }
 
     .product img {
-      width: 100%;
-      height: auto;
+      max-width: 100%;
       border-radius: 10px;
     }
 
@@ -55,16 +57,17 @@
     }
 
     .product p {
-      color: #555;
-      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      color: #333;
     }
 
     .product button {
       background: #f48fb1;
-      color: white;
       border: none;
+      color: white;
       padding: 0.5rem 1rem;
-      border-radius: 8px;
+      border-radius: 5px;
       cursor: pointer;
       font-size: 1rem;
     }
@@ -74,42 +77,35 @@
     }
 
     .cart {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(255, 255, 255, 0.95);
+      background: #fff;
       padding: 1rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      width: 90%;
-      max-width: 300px;
-      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      margin: 1rem;
+      max-width: 800px;
+      margin: 2rem auto;
     }
 
     .cart ul {
       list-style: none;
       padding: 0;
-      margin: 0;
-      max-height: 150px;
-      overflow-y: auto;
+      margin: 0 0 1rem 0;
     }
 
     .cart li {
-      margin: 0.5rem 0;
-      font-size: 1rem;
+      margin-bottom: 0.5rem;
       color: #444;
     }
 
     .cart button {
-      margin-top: 1rem;
       background: #81c784;
       color: white;
       border: none;
       padding: 0.7rem;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 5px;
       font-size: 1rem;
       width: 100%;
+      cursor: pointer;
     }
 
     .cart button:hover {
@@ -122,19 +118,19 @@
 
   <div class="container">
     <div class="product">
-      <img src="https://via.placeholder.com/250" alt="Decoración Stitch">
+      <img src="https://via.placeholder.com/300" alt="Decoración Stitch">
       <h3>Decoración Stitch</h3>
-      <p>$15000</p>
+      <p>$15.000</p>
       <button onclick="addToCart('Decoración Stitch', 15000)">Agregar</button>
     </div>
     <div class="product">
-      <img src="https://via.placeholder.com/250" alt="Decoración Spiderman">
+      <img src="https://via.placeholder.com/300" alt="Decoración Spiderman">
       <h3>Decoración Spiderman</h3>
-      <p>$16000</p>
+      <p>$16.000</p>
       <button onclick="addToCart('Decoración Spiderman', 16000)">Agregar</button>
     </div>
     <div class="product">
-      <img src="https://via.placeholder.com/250" alt="Producto de prueba">
+      <img src="https://via.placeholder.com/300" alt="Producto de prueba">
       <h3>Producto de prueba</h3>
       <p>$10</p>
       <button onclick="addToCart('Producto de prueba', 10)">Agregar</button>
@@ -154,10 +150,6 @@
     function addToCart(name, price) {
       cart.push({ name, price });
       renderCart();
-      document.getElementById("cart").classList.add("added");
-      setTimeout(() => {
-        document.getElementById("cart").classList.remove("added");
-      }, 300);
     }
 
     function renderCart() {
