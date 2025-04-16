@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -7,71 +7,85 @@
   <script src="https://sdk.mercadopago.com/js/v2"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background: #fdf6f9;
+      background-image: url('https://i.ibb.co/yYjW3HF/girasoles-abejas.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
     }
-    .dedicatoria {
-      text-align: center;
-      font-size: 2rem;
-      color: #e91e63;
-      font-weight: bold;
-      margin-top: 1rem;
-      text-shadow: 1px 1px #fff;
-    }
+
     header {
-      background: #ff80ab;
+      background: rgba(255, 192, 203, 0.9);
       padding: 1rem;
       text-align: center;
       color: white;
       font-size: 2rem;
       font-weight: bold;
+      backdrop-filter: blur(5px);
     }
+
     .container {
-      padding: 2rem;
+      padding: 1rem;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
+
     .product {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
       padding: 1rem;
       text-align: center;
-      transition: transform 0.2s ease;
+      backdrop-filter: blur(5px);
     }
+
     .product img {
       width: 100%;
       height: auto;
       border-radius: 10px;
     }
+
     .product h3 {
       margin: 0.5rem 0;
+      color: #d81b60;
     }
+
+    .product p {
+      color: #555;
+      font-size: 1.2rem;
+    }
+
     .product button {
-      background: #ff4081;
+      background: #f48fb1;
       color: white;
       border: none;
       padding: 0.5rem 1rem;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: background 0.2s;
+      font-size: 1rem;
     }
+
     .product button:hover {
-      background: #f50057;
+      background: #ec407a;
     }
+
     .cart {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.95);
       padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 300px;
+      backdrop-filter: blur(5px);
     }
+
     .cart ul {
       list-style: none;
       padding: 0;
@@ -79,51 +93,48 @@
       max-height: 150px;
       overflow-y: auto;
     }
+
     .cart li {
       margin: 0.5rem 0;
+      font-size: 1rem;
+      color: #444;
     }
+
     .cart button {
       margin-top: 1rem;
-      background: #28a745;
+      background: #81c784;
       color: white;
       border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
+      padding: 0.7rem;
+      border-radius: 8px;
       cursor: pointer;
       font-size: 1rem;
+      width: 100%;
     }
+
     .cart button:hover {
-      background: #218838;
-    }
-    .added {
-      animation: bounce 0.3s ease;
-    }
-    @keyframes bounce {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
+      background: #66bb6a;
     }
   </style>
 </head>
 <body>
-  <div class="dedicatoria">MIS GIRASOLES, PARA JACQUI</div>
   <header>Tienda Girasoles</header>
 
   <div class="container">
     <div class="product">
-      <img src="https://via.placeholder.com/250" alt="Producto 1">
+      <img src="https://via.placeholder.com/250" alt="Decoración Stitch">
       <h3>Decoración Stitch</h3>
       <p>$15000</p>
       <button onclick="addToCart('Decoración Stitch', 15000)">Agregar</button>
     </div>
     <div class="product">
-      <img src="https://via.placeholder.com/250" alt="Producto 2">
+      <img src="https://via.placeholder.com/250" alt="Decoración Spiderman">
       <h3>Decoración Spiderman</h3>
       <p>$16000</p>
       <button onclick="addToCart('Decoración Spiderman', 16000)">Agregar</button>
     </div>
     <div class="product">
-      <img src="https://via.placeholder.com/250" alt="Prueba de pago">
+      <img src="https://via.placeholder.com/250" alt="Producto de prueba">
       <h3>Producto de prueba</h3>
       <p>$10</p>
       <button onclick="addToCart('Producto de prueba', 10)">Agregar</button>
@@ -191,4 +202,4 @@
     }
   </script>
 </body>
-  </html>
+</html>
