@@ -3,167 +3,143 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tienda Stitch</title>
+  <title>Tienda Girasoles</title>
   <script src="https://sdk.mercadopago.com/js/v2"></script>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
       font-family: 'Arial', sans-serif;
-      background: linear-gradient(to bottom, #b3e5fc, #e1f5fe);
-      background-image: url('https://i.ibb.co/BBs6X0R/stitch-bg.jpg'); /* Fondo Stitch */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: #333;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #b3e5fc, #e1f5fe);
     }
 
     header {
-      background-color: rgba(0, 150, 255, 0.9);
+      background-color: #0288d1;
       color: white;
+      padding: 1rem;
       text-align: center;
-      padding: 1.5rem;
-      font-size: 2.2rem;
+      font-size: 2rem;
       font-weight: bold;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
 
     .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
       max-width: 1200px;
       margin: 0 auto;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
 
     .product {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 15px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       padding: 1rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
-      transition: transform 0.2s ease;
-    }
-
-    .product:hover {
-      transform: scale(1.03);
     }
 
     .product img {
-      max-width: 100%;
-      border-radius: 10px;
-      margin-bottom: 0.5rem;
+      width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      border-radius: 15px;
     }
 
     .product h3 {
-      color: #0277bd;
       margin: 0.5rem 0;
+      color: #0288d1;
     }
 
     .product p {
+      color: #555;
       font-size: 1.1rem;
-      margin: 0.5rem 0;
     }
 
     .product button {
-      background: #03a9f4;
+      background: #ff80ab;
       color: white;
       border: none;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
       cursor: pointer;
+      font-size: 1rem;
+      margin-top: 0.5rem;
     }
 
     .product button:hover {
-      background: #0288d1;
+      background: #f50057;
     }
 
     .cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
       background: white;
-      max-width: 500px;
-      margin: 2rem auto;
-      padding: 1.5rem;
       border-radius: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .cart h2 {
-      margin-top: 0;
-      text-align: center;
-      color: #0277bd;
+      width: 90%;
+      max-width: 300px;
+      padding: 1rem;
+      z-index: 1000;
     }
 
     .cart ul {
       list-style: none;
       padding: 0;
-      margin: 1rem 0;
-      max-height: 200px;
+      max-height: 150px;
       overflow-y: auto;
     }
 
     .cart li {
       margin-bottom: 0.5rem;
+      color: #333;
     }
 
     .cart button {
-      background: #43a047;
+      background: #81c784;
       color: white;
       border: none;
-      padding: 0.8rem;
-      font-size: 1rem;
+      padding: 0.7rem;
       border-radius: 8px;
-      width: 100%;
       cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+      margin-top: 1rem;
     }
 
     .cart button:hover {
-      background: #388e3c;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        font-size: 1.7rem;
-        padding: 1rem;
-      }
-
-      .cart {
-        margin: 1rem;
-        padding: 1rem;
-      }
+      background: #4caf50;
     }
   </style>
 </head>
 <body>
-  <header>Tienda Stitch</header>
+
+  <header>Tienda Girasoles</header>
 
   <div class="container">
     <div class="product">
-      <img src="https://i.ibb.co/dpKgcpK/stitch1.jpg" alt="Decoración Stitch">
+      <img src="https://i.ibb.co/hcQvWmn/stitch-tierno.png" alt="Decoración Stitch">
       <h3>Decoración Stitch</h3>
       <p>$15.000</p>
       <button onclick="addToCart('Decoración Stitch', 15000)">Agregar</button>
     </div>
     <div class="product">
-      <img src="https://i.ibb.co/Y8VCvWV/stitch2.jpg" alt="Caja temática Stitch">
-      <h3>Caja temática Stitch</h3>
+      <img src="https://i.ibb.co/3CrMYsd/stitch-cool.png" alt="Decoración Spiderman">
+      <h3>Decoración Spiderman</h3>
       <p>$16.000</p>
-      <button onclick="addToCart('Caja temática Stitch', 16000)">Agregar</button>
+      <button onclick="addToCart('Decoración Spiderman', 16000)">Agregar</button>
     </div>
     <div class="product">
-      <img src="https://i.ibb.co/SJ7Rhhx/stitch3.jpg" alt="Globo Stitch">
-      <h3>Globo Stitch</h3>
-      <p>$10.000</p>
-      <button onclick="addToCart('Globo Stitch', 10000)">Agregar</button>
+      <img src="https://i.ibb.co/Drq9byy/stitch-patito.png" alt="Producto de prueba">
+      <h3>Producto de prueba</h3>
+      <p>$10</p>
+      <button onclick="addToCart('Producto de prueba', 10)">Agregar</button>
     </div>
   </div>
 
   <div class="cart" id="cart">
-    <h2>Carrito</h2>
+    <strong>Carrito</strong>
     <ul id="cart-items"></ul>
     <div id="total">Total: $0</div>
     <button onclick="checkout()">Pagar ♥</button>
@@ -218,5 +194,6 @@
       }
     }
   </script>
+
 </body>
 </html>
